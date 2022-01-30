@@ -1,4 +1,4 @@
-listeMessages = {
+LISTE_MESSAGES = {
     "ERR_001": "",
     "token_refresh_401": "Erreur de token - Merci de renouveller vos consentements.",
     "no_data_found": "Donnees non disponible",
@@ -12,8 +12,5 @@ listeMessages = {
 }
 
 
-def getMessage(codeMessage):
-    if codeMessage in listeMessages.keys():
-        return listeMessages[codeMessage]
-    else:
-        return codeMessage
+def get_message(code):
+    return LISTE_MESSAGES.get(code, code)

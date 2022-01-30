@@ -1169,7 +1169,7 @@ class myClientEnedis:
                             self.updateErrorLastCall(
                                 "%s - %s"
                                 % (
-                                    messages.getMessage(inst.args[2]),
+                                    messages.get_message(inst.args[2]),
                                     self._myCalli.getLastAnswer(),
                                 )
                             )
@@ -1199,7 +1199,7 @@ class myClientEnedis:
                             self.updateErrorLastCall(
                                 "%s - %s"
                                 % (
-                                    messages.getMessage(inst.args[2]),
+                                    messages.get_message(inst.args[2]),
                                     self._myCalli.getLastAnswer(),
                                 )
                             )
@@ -1242,7 +1242,7 @@ class myClientEnedis:
                         self.updateTimeLastCall()
                         self.updateStatusLastCall(False)
                         message = "%s - %s" % (
-                            messages.getMessage(inst.args[2]),
+                            messages.get_message(inst.args[2]),
                             self._myCalli.getLastAnswer(),
                         )
                         self.updateErrorLastCall(message)

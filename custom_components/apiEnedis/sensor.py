@@ -1,25 +1,12 @@
 """Sensor for my first"""
-import datetime
 import logging
-from datetime import timedelta
 
 try:
     import homeassistant.helpers.config_validation as cv
     import voluptuous as vol
-    from homeassistant.helpers.update_coordinator import (
-        CoordinatorEntity,
-        DataUpdateCoordinator,
-    )
     from homeassistant.core import HomeAssistant
     from homeassistant.components.sensor import PLATFORM_SCHEMA
     from homeassistant.config_entries import ConfigEntry
-    from homeassistant.core import callback
-    from homeassistant.helpers.restore_state import RestoreEntity
-    from homeassistant.helpers.typing import HomeAssistantType
-    from homeassistant.util import Throttle
-    from homeassistant.const import (
-        ATTR_ATTRIBUTION,
-    )
 
 except ImportError:
     # si py test
@@ -28,10 +15,7 @@ except ImportError:
 
 from .const import (
     DOMAIN,
-    __VERSION__,
     __name__,
-    _consommation,
-    _production,
     SENSOR_TYPES,
     COORDINATOR_ENEDIS,
     CONF_TOKEN,
@@ -43,7 +27,6 @@ from .const import (
 )
 
 _LOGGER = logging.getLogger(__name__)
-from .sensorEnedis import manageSensorState
 
 # pour gerer les anciennes config via yaml et le message d'ereur
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(

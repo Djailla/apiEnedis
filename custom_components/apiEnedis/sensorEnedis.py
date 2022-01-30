@@ -1,6 +1,7 @@
 from collections import defaultdict
 import datetime
-import sys, traceback
+import sys
+import traceback
 
 try:
     from .const import _consommation, _production
@@ -134,7 +135,6 @@ class manageSensorState:
         laDate = laDate.replace(minute=0, second=0, microsecond=0)
         lastReset = laDate
         if self._myDataEnedis.getTimeLastCall() is not None:
-            DateHeureDetail = {}
             DateHeureDetailHP = (
                 self._myDataEnedis.getLast7DaysDetails().getDateHeureDetailHP()
             )
@@ -162,7 +162,6 @@ class manageSensorState:
         laDate = laDate.replace(minute=0, second=0, microsecond=0)
         lastReset = laDate
         if self._myDataEnedis.getTimeLastCall() is not None:
-            DateHeureDetail = {}
             DateHeureDetailHP = (
                 self._myDataEnedis.getLast7DaysDetails().getDateHeureDetailHP()
             )
@@ -176,8 +175,6 @@ class manageSensorState:
             if clefDate in DateHeureDetailHC.keys():
                 valeurHC = DateHeureDetailHC[clefDate]
 
-            costHC = f"{0.001 * self._myDataEnedis.getHCCost(valeurHC):.3f}"
-            costHP = f"{0.001 * self._myDataEnedis.getHPCost(valeurHP):.3f}"
             cost = self._myDataEnedis.getHCCost(
                 valeurHC
             ) + self._myDataEnedis.getHPCost(valeurHP)
